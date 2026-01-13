@@ -1,4 +1,5 @@
-# Mineral Classification Project
+# Rock Classification with a RAMAN Spectrometer
+
 - **Author:** Tanmay Talreja (m12519565)
 
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
