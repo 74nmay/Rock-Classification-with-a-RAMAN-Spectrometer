@@ -33,6 +33,9 @@ This project implements robust machine learning pipelines for classifying minera
 │   ├── test_images_30fps.ipynb
 │   ├── test_profiles_1fps.ipynb
 │   └── test_profiles_30fps.ipynb
+├── src/                 # Modular Python models and CLI inference
+│   ├── models.py        # Model1DCNN, MLP, ResNet50, MobileViT architectures
+│   └── inference.py     # Command-line prediction tool
 ├── requirements.txt     # Python dependencies
 └── README.md            # Project documentation
 ```
@@ -93,8 +96,21 @@ The project is structured into Jupyter Notebooks located in the `scripts/` direc
 
    Run all cells in the notebook. Key outputs will be displayed inline.
 
-3. **Inference**:
+3. **Interactive Inference (Notebooks)**:
    Use the notebooks in the `test/` directory to load saved models and perform inference on test sets.
+
+4. **CLI Quick Inference (`src/inference.py`)**:
+   You can run predictions on any spectral CSV profile or mineral image directly from the terminal without launching Jupyter:
+   ```bash
+   # Predict mineral from spectral profile using 1D-CNN (1fps model)
+   python src/inference.py --model cnn_1fps --input path/to/spectral_profile.csv
+
+   # Predict mineral from spectral profile using MLP (30fps model)
+   python src/inference.py --model mlp_30fps --input path/to/spectral_profile.csv
+
+   # Predict mineral from field image using MobileViT-XS
+   python src/inference.py --model mobilevit_1fps --input path/to/mineral_image.bmp
+   ```
 
 ## Model Architectures
 
